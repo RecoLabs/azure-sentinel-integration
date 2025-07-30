@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "logicAppName": {
+      "value": "reco-logic-app-sentinel-"
+    },
+    "workspaceId": {
+      "value": "YOUR_WORKSPACE_ID_HERE"
+    },
+    "workspaceKey": {
+      "value": "YOUR_WORKSPACE_KEY_HERE"
+    },
+    "logType": {
+      "value": "RecoAlert"
+    },
+    "timeoutInSeconds": {
+      "value": 30
+    },
+    "tags": {
+      "value": {
+        "Environment": "Production",
+        "Application": "Reco - Logic App Sentinel Integration",
+        "Owner": "IT Operations",
+        "Project": "Reco - Azure Sentinel Data Integration "
+      }
+    }
+  }
+} 
