@@ -1,0 +1,80 @@
+# Configuration for Reco Alert Pull Service
+# This file is used for local development/testing.
+# In production (Azure Function), all sensitive values should be stored in Azure Key Vault.
+
+# Reco API Configuration
+reco:
+  # Your Reco tenant URL (without https://)
+  # Example: "customer.reco.ai"
+  tenant_url: "your-tenant.reco.ai"
+  
+  # Reco API key for authentication
+  # In production: stored as "reco-api-key" in Key Vault
+  api_key: "your-reco-api-key-here"
+
+# Alert Processing Configuration
+alerts:
+  # Number of alerts to fetch per API call (max recommended: 1000)
+  fetch_limit: 100
+  
+  # Azure Log Analytics Workspace Configuration
+  # Direct integration with Azure Sentinel/Log Analytics workspace
+  
+  # Azure Log Analytics Workspace ID (required)
+  # In production: stored as "azure-workspace-id" in Key Vault
+  workspace_id: "your-workspace-id-here"
+  
+  # Azure Log Analytics Workspace Primary/Secondary Key (required)
+  # In production: stored as "azure-workspace-key" in Key Vault
+  workspace_key: "your-workspace-key-here"
+  
+  # Custom log table name in Log Analytics (will have '_CL' suffix added automatically)
+  # In production: stored as "azure-log-type" in Key Vault
+  log_type: "RecoAlert"
+
+# Azure Function Configuration (used when running in Azure)
+azure:
+  # Key Vault URL - set via environment variable AZURE_KEYVAULT_URL
+  # Example: "https://your-keyvault.vault.azure.net/"
+  keyvault_url: ""
+  
+  # Function App name and environment
+  function_name: "reco-alert-processor"
+  environment: "production"  # or "staging", "development"
+
+# Logging Configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file location (for local runs)
+  file_path: "logs/alert-processor.log"
+  
+  # Enable console output
+  console_output: true
+
+# Processing Configuration
+processing:
+  # Maximum number of alerts to process in a single run
+  max_alerts_per_run: 1000
+  
+  # Timeout for HTTP requests (seconds)
+  http_timeout: 30
+  
+  # Retry configuration
+  max_retries: 3
+  retry_delay: 5  # seconds
+  
+  # Enable agent summary fetching (adds AI-generated summaries to alerts)
+  fetch_agent_summary: true
+
+# Development/Testing Configuration
+development:
+  # Skip Key Vault integration (use local config instead)
+  use_local_config: true
+  
+  # Mock mode for testing without actual API calls
+  mock_mode: false
+  
+  # Dry run mode (fetch alerts but don't send to Sentinel)
+  dry_run: false
