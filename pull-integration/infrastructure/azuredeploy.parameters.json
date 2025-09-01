@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "projectName": {
+      "value": "reco-alert-processor"
+    },
+    "location": {
+      "value": "Central India"
+    },
+    "functionAppSku": {
+      "value": "Y1"
+    },
+    "timerSchedule": {
+      "value": "0 */5 * * * *"
+    },
+    "enableApplicationInsights": {
+      "value": true
+    },
+    "logAnalyticsWorkspaceId": {
+      "value": "59f1cfa1-96c9-4984-9fa0-d6ab7adb16f2"
+    },
+    "logAnalyticsWorkspaceKey": {
+      "value": "dO/Ke+ELbUm88Gu8uUEn4B3B8CPo+pJAXR6orZRvYZC99QHMDLhy0yUZspLHj+2XwBuDQ5C2Y0/TVgouxtESTw=="
+    },
+    "recoTenantUrl": {
+      "value": "pentest.preprod.eu.reco.ai"
+    },
+    "recoApiKey": {
+      "value": "K2yUYRpeBdTSWzNr6tIKNBnzpvk8hK3yHQWsjFt4he0zClgbjmwHya2KjTkKEDrsZ4IejiJ"
+    },
+    "recoFetchLimit": {
+      "value": 100
+    },
+    "azureLogType": {
+      "value": "RecoAlert"
+    },
+    "tags": {
+      "value": {
+        "Application": "Reco Alert Processor",
+        "ManagedBy": "ARM Template",
+        "Environment": "Production",
+        "Owner": "IT Operations",
+        "Project": "Reco - Azure Sentinel Integration",
+        "CostCenter": "Security Operations"
+      }
+    }
+  }
+}
